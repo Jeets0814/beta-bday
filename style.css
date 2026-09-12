@@ -79,6 +79,140 @@ body {
 #confetti-canvas { z-index: 2000; }
 
 /* ----------------------------------------------------
+   OPENING SURPRISE INTRO OVERLAY
+   ---------------------------------------------------- */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(74, 16, 56, 0.95) 0%, rgba(18, 2, 14, 0.98) 100%);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+}
+
+.intro-overlay.hidden {
+  opacity: 0;
+  transform: scale(1.08);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-card {
+  max-width: 480px;
+  width: 100%;
+  padding: clamp(2.5rem, 6vw, 3.5rem) clamp(1.5rem, 5vw, 2.5rem);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  animation: introPopIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 84, 142, 0.35);
+}
+
+.intro-gift-box {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.intro-gift-box:hover {
+  transform: scale(1.18) rotate(6deg);
+}
+
+.gift-icon {
+  font-size: 4.2rem;
+  animation: giftWobble 2.5s infinite ease-in-out;
+}
+
+.gift-sparkles {
+  position: absolute;
+  inset: -15px;
+  pointer-events: none;
+}
+
+.gift-sparkles span {
+  position: absolute;
+  font-size: 1.2rem;
+}
+
+.gift-sparkles span:nth-child(1) {
+  top: 0;
+  right: 0;
+  animation: sparkleFloat 2s infinite ease-in-out;
+}
+
+.gift-sparkles span:nth-child(2) {
+  bottom: 0;
+  left: 0;
+  animation: sparkleFloat 2.2s infinite ease-in-out 0.4s;
+}
+
+.gift-sparkles span:nth-child(3) {
+  top: 10px;
+  left: -5px;
+  animation: sparkleFloat 1.8s infinite ease-in-out 0.8s;
+}
+
+@keyframes giftWobble {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-8px) rotate(-6deg) scale(1.05); }
+  75% { transform: translateY(-4px) rotate(6deg) scale(1.05); }
+}
+
+@keyframes sparkleFloat {
+  0%, 100% { transform: scale(0.8) translateY(0); opacity: 0.4; }
+  50% { transform: scale(1.3) translateY(-10px); opacity: 1; }
+}
+
+@keyframes introPopIn {
+  0% { transform: scale(0.6) translateY(30px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.intro-tag {
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-gold);
+}
+
+.intro-title {
+  font-size: clamp(1.8rem, 5.5vw, 2.3rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 30%, var(--primary-blush) 70%, var(--primary-rose) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.intro-subtitle {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.intro-btn {
+  margin-top: 0.5rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  padding: 0.9rem 2rem;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* ----------------------------------------------------
    AMBIENT BOKEH BLOBS & BALLOONS
    ---------------------------------------------------- */
 .bokeh-container {

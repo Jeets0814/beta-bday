@@ -561,26 +561,57 @@ function initScrollObserver() {
 
 
 // ----------------------------------------------------------
-// 13. BOOTSTRAP INITIALIZATION
+// 13. OPENING SURPRISE INTRO ANIMATION
+// ----------------------------------------------------------
+function initIntroOverlay() {
+  const overlay = document.getElementById("intro-overlay");
+  const introBtn = document.getElementById("intro-btn");
+  const introGift = document.getElementById("intro-gift");
+  const bgMusic = document.getElementById("bg-music");
+  const musicToggle = document.getElementById("music-toggle");
+
+  if (!overlay) return;
+
+  function openSurprise() {
+    overlay.classList.add("hidden");
+
+    // Play music automatically upon user click
+    if (bgMusic) {
+      bgMusic.play().then(() => {
+        if (musicToggle) musicToggle.classList.add("playing");
+      }).catch(() => {});
+    }
+
+    // Celebrate with confetti bursts
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    ConfettiEngine.blast(centerX, centerY, 120);
+    setTimeout(() => ConfettiEngine.blast(centerX - 200, centerY - 100, 80), 200);
+    setTimeout(() => ConfettiEngine.blast(centerX + 200, centerY - 100, 80), 400);
+
+    // Trigger typewriter heading
+    initTypewriter();
+  }
+
+  if (introBtn) introBtn.addEventListener("click", openSurprise);
+  if (introGift) introGift.addEventListener("click", openSurprise);
+}
+
+
+// ----------------------------------------------------------
+// 14. BOOTSTRAP INITIALIZATION
 // ----------------------------------------------------------
 function bootstrap() {
   try { initCursorSparkles(); } catch (e) { console.error(e); }
   try { initMusicPlayer(); } catch (e) { console.error(e); }
   try { initMemoryShowcase(); } catch (e) { console.error(e); }
   try { initEnvelopeLetter(); } catch (e) { console.error(e); }
-  try { initTypewriter(); } catch (e) { console.error(e); }
   try { initCountdown(); } catch (e) { console.error(e); }
   try { initBalloons(); } catch (e) { console.error(e); }
   try { initAmbientCanvas(); } catch (e) { console.error(e); }
   try { initInteractiveCard(); } catch (e) { console.error(e); }
   try { initScrollObserver(); } catch (e) { console.error(e); }
-
-  // Initial confetti welcome burst
-  setTimeout(() => {
-    try {
-      ConfettiEngine.blast(window.innerWidth / 2, window.innerHeight / 3, 75);
-    } catch (e) {}
-  }, 500);
+  try { initIntroOverlay(); } catch (e) { console.error(e); }
 }
 
 if (document.readyState === "loading") {
