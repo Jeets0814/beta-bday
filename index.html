@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Khyatea 💖</title>
+  
+  <!-- Google Fonts: Romantic Script & Modern Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Interactive Cursor Sparkle Canvas -->
+  <canvas id="cursor-canvas"></canvas>
+  <!-- Canvas for ambient floating hearts & confetti bursts -->
+  <canvas id="ambient-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Floating Balloons & Bokeh Lights Container -->
+  <div class="balloon-container" aria-hidden="true" id="balloon-container"></div>
+  <div class="bokeh-container" aria-hidden="true">
+    <div class="bokeh-blob blob-1"></div>
+    <div class="bokeh-blob blob-2"></div>
+    <div class="bokeh-blob blob-3"></div>
+  </div>
+
+  <!-- FLOATING MUSIC PLAYER BUTTON -->
+  <div class="music-player" id="music-toggle" title="Play Romantic Ambient Music">
+    <div class="music-waves">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <span class="music-label">Our Song 🎵</span>
+    <audio id="bg-music" loop preload="auto">
+      <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+
+  <!-- MAIN SCROLL CONTAINER -->
+  <main class="page-wrapper">
+    
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="section hero-section">
+      <div class="hero-content aurora-card fade-in">
+        <div class="badge-shimmer">
+          <span class="sparkle-icon">✨</span>
+          <span>Today is all about you</span>
+          <span class="sparkle-icon">✨</span>
+        </div>
+        
+        <h1 class="hero-title">
+          <span class="gradient-text typewriter-text" id="typewriter">Happy Birthday, Khyatea!</span>
+          <span class="cursor">|</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          Every second with you is my favorite memory, but today belongs completely to you.
+        </p>
+
+        <!-- Modern Glowing Countdown Timer -->
+        <div class="countdown-wrapper">
+          <p class="countdown-label" id="countdown-status">
+            <span class="pulse-dot"></span> Counting down to your special moment ⏳
+          </p>
+          <div class="countdown-grid" id="countdown">
+            <div class="time-box glow-hover">
+              <span class="time-val" id="days">00</span>
+              <span class="time-unit">Days</span>
+            </div>
+            <div class="time-box glow-hover">
+              <span class="time-val" id="hours">00</span>
+              <span class="time-unit">Hours</span>
+            </div>
+            <div class="time-box glow-hover">
+              <span class="time-val" id="minutes">00</span>
+              <span class="time-unit">Mins</span>
+            </div>
+            <div class="time-box glow-hover">
+              <span class="time-val" id="seconds">00</span>
+              <span class="time-unit">Secs</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#gallery" class="scroll-indicator" aria-label="Scroll down">
+          <span>Relive Our Moments</span>
+          <div class="mouse-icon">
+            <div class="wheel"></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. MODERN 3D INTERACTIVE SCATTERED & MASONRY PHOTO SHOWCASE -->
+    <section id="gallery" class="section gallery-section reveal-on-scroll">
+      <div class="section-header">
+        <span class="section-tag">Interactive Memories</span>
+        <h2 class="section-title">Moments Frozen In Time 📸</h2>
+        <p class="section-subtitle">Hover or tap on each memory to flip and reveal secret notes.</p>
+      </div>
+
+      <!-- Modern Floating 3D Tilt Gallery Grid -->
+      <div class="modern-gallery-showcase" id="gallery-grid">
+        
+        <!-- Memory Item 1: Bright Smiles -->
+        <div class="memory-frame tilt-element" data-tilt>
+          <div class="tape-sticker tape-pink"></div>
+          <div class="memory-inner">
+            <div class="memory-front">
+              <div class="image-lens">
+                <img src="photo1.jpg" alt="Jeet and Khyatea Smiling" loading="lazy" />
+                <div class="image-vignette"></div>
+                <div class="memory-glow"></div>
+                <span class="polaroid-tag">My Favorite Smile ✨</span>
+              </div>
+              <div class="memory-footer">
+                <span class="handwritten-date">Pure Happiness</span>
+                <span class="flip-prompt">Tap to flip ↺</span>
+              </div>
+            </div>
+            <div class="memory-back">
+              <div class="note-content">
+                <span class="note-emoji">🌹</span>
+                <h4>That Smile</h4>
+                <p>"Your smile lights up my whole universe, Khyatea. Thank you for filling my life with pure warmth."</p>
+                <span class="love-sign">Forever & Always ❤️</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Memory Item 2: Auto Ride Fun -->
+        <div class="memory-frame tilt-element" data-tilt>
+          <div class="tape-sticker tape-gold"></div>
+          <div class="memory-inner">
+            <div class="memory-front">
+              <div class="image-lens">
+                <img src="photo2.jpg" alt="Jeet and Khyatea in Rickshaw" loading="lazy" />
+                <div class="image-vignette"></div>
+                <div class="memory-glow"></div>
+                <span class="polaroid-tag">Crazy Rides 🛺💕</span>
+              </div>
+              <div class="memory-footer">
+                <span class="handwritten-date">Little Adventures</span>
+                <span class="flip-prompt">Tap to flip ↺</span>
+              </div>
+            </div>
+            <div class="memory-back">
+              <div class="note-content">
+                <span class="note-emoji">💫</span>
+                <h4>Silly & Sweet</h4>
+                <p>"Every ordinary ride becomes an unforgettable adventure as long as I am with you."</p>
+                <span class="love-sign">My favorite person 🌸</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Memory Item 3: Candid Together -->
+        <div class="memory-frame tilt-element" data-tilt>
+          <div class="tape-sticker tape-purple"></div>
+          <div class="memory-inner">
+            <div class="memory-front">
+              <div class="image-lens">
+                <img src="photo3.jpg" alt="Jeet and Khyatea Calm Moment" loading="lazy" />
+                <div class="image-vignette"></div>
+                <div class="memory-glow"></div>
+                <span class="polaroid-tag">Our Safe Haven 🕊️</span>
+              </div>
+              <div class="memory-footer">
+                <span class="handwritten-date">Quiet Moments</span>
+                <span class="flip-prompt">Tap to flip ↺</span>
+              </div>
+            </div>
+            <div class="memory-back">
+              <div class="note-content">
+                <span class="note-emoji">�</span>
+                <h4>Comfort in You</h4>
+                <p>"In your eyes, I find all the calm, kindness, and love I could ever dream of."</p>
+                <span class="love-sign">My everything 🎀</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Memory Item 4: Walking Step in Step -->
+        <div class="memory-frame tilt-element" data-tilt>
+          <div class="tape-sticker tape-pink"></div>
+          <div class="memory-inner">
+            <div class="memory-front">
+              <div class="image-lens">
+                <img src="photo4.jpg" alt="Jeet and Khyatea Walking Together" loading="lazy" />
+                <div class="image-vignette"></div>
+                <div class="memory-glow"></div>
+                <span class="polaroid-tag">Step by Step 👫</span>
+              </div>
+              <div class="memory-footer">
+                <span class="handwritten-date">Together Forever</span>
+                <span class="flip-prompt">Tap to flip ↺</span>
+              </div>
+            </div>
+            <div class="memory-back">
+              <div class="note-content">
+                <span class="note-emoji">👣</span>
+                <h4>Side by Side</h4>
+                <p>"Through every path life takes us on, I promise to always hold your hand."</p>
+                <span class="love-sign">Jeet & Khyatea 🔐</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Memory Item 5: Sunlight & Love -->
+        <div class="memory-frame tilt-element" data-tilt>
+          <div class="tape-sticker tape-gold"></div>
+          <div class="memory-inner">
+            <div class="memory-front">
+              <div class="image-lens">
+                <img src="photo5.jpg" alt="Jeet and Khyatea Glowing" loading="lazy" />
+                <div class="image-vignette"></div>
+                <div class="memory-glow"></div>
+                <span class="polaroid-tag">Sunlight & Smiles ☀️💖</span>
+              </div>
+              <div class="memory-footer">
+                <span class="handwritten-date">Golden Moments</span>
+                <span class="flip-prompt">Tap to flip ↺</span>
+              </div>
+            </div>
+            <div class="memory-back">
+              <div class="note-content">
+                <span class="note-emoji">✨</span>
+                <h4>Sunshine</h4>
+                <p>"With you, every single day feels brighter, warmer, and full of endless hope."</p>
+                <span class="love-sign">Always Yours 🌹</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Memory Item 6: Sweetest Kiss -->
+        <div class="memory-frame tilt-element" data-tilt>
+          <div class="tape-sticker tape-purple"></div>
+          <div class="memory-inner">
+            <div class="memory-front">
+              <div class="image-lens">
+                <img src="photo6.jpg" alt="Sweet Kiss on the Cheek" loading="lazy" />
+                <div class="image-vignette"></div>
+                <div class="memory-glow"></div>
+                <span class="polaroid-tag">Sweetest Kiss 💋✨</span>
+              </div>
+              <div class="memory-footer">
+                <span class="handwritten-date">Cutest Memory</span>
+                <span class="flip-prompt">Tap to flip ↺</span>
+              </div>
+            </div>
+            <div class="memory-back">
+              <div class="note-content">
+                <span class="note-emoji">😘</span>
+                <h4>Sweet Love</h4>
+                <p>"A million kisses wouldn't be enough to express how deeply I adore you, Khyatea."</p>
+                <span class="love-sign">Endlessly Yours 💖</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. HEARTFELT MESSAGE - INTERACTIVE 3D ENVELOPE / LETTER -->
+    <section id="message" class="section message-section reveal-on-scroll">
+      <div class="section-header">
+        <span class="section-tag">Straight From The Heart</span>
+        <h2 class="section-title">An Open Letter To You 💌</h2>
+        <p class="section-subtitle">Click the wax seal to unfold my heartfelt thoughts.</p>
+      </div>
+
+      <!-- 3D Interactive Envelope Container -->
+      <div class="envelope-wrapper" id="envelope-wrapper">
+        <div class="envelope" id="envelope">
+          <div class="envelope-flap" id="envelope-flap"></div>
+          <div class="envelope-pocket"></div>
+          
+          <div class="wax-seal-btn" id="seal-btn" title="Click to Open Letter">
+            <span>❤️</span>
+            <div class="seal-ripple"></div>
+          </div>
+          
+          <!-- Unfolding Letter Paper -->
+          <div class="letter-paper" id="letter-paper">
+            <div class="letter-inner">
+              <p class="letter-greeting">My Dearest Khyatea,</p>
+              
+              <p class="letter-para">
+                First and foremost, <strong>Happy, Happy Birthday!</strong> 🎉 You illuminate my life with your warmth, patience, and irresistible laughter. Being beside you is the greatest privilege of my life.
+              </p>
+              
+              <p class="letter-para">
+                I also want to say with complete sincerity: <em>I am deeply sorry for any time I caused you pain, acted thoughtlessly, or let you down.</em> You deserve only gentleness and care, and seeing you hurt breaks my heart more than anything.
+              </p>
+              
+              <p class="letter-para">
+                I promise to continually listen, learn, and love you with every ounce of my soul. Thank you for giving me your heart.
+              </p>
+
+              <div class="letter-sign-block">
+                <p>Forever & unconditionally yours,</p>
+                <span class="handwritten-signature">Jeet</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. INTERACTIVE "FORGIVE ME" CARD -->
+    <section id="interactive" class="section interactive-section reveal-on-scroll">
+      <div class="interactive-card aurora-card" id="forgive-box">
+        <div class="floating-hearts-bg" aria-hidden="true">
+          <span>💖</span><span>🌸</span><span>✨</span><span>💕</span><span>🌹</span>
+        </div>
+
+        <span class="section-tag">One Tiny Question...</span>
+        <h2 class="interactive-title">Will you forgive me? 🥺👉👈</h2>
+        <p class="interactive-desc">
+          I promise unlimited kisses, endless desserts, and a lifetime of making you smile.
+        </p>
+
+        <!-- Dodge buttons playground -->
+        <div class="buttons-playground" id="playground">
+          <button id="btn-no" class="btn btn-secondary magnetic-btn">
+            I won't forgive you 😢
+          </button>
+          
+          <button id="btn-yes" class="btn btn-primary pulse-btn">
+            I forgive you 💕
+          </button>
+        </div>
+
+        <p class="dodge-hint" id="dodge-hint">Try saying no... if you can! 😉</p>
+
+        <!-- Success Reveal State (Initially hidden) -->
+        <div class="success-message" id="success-message">
+          <div class="success-icon">🎉💖</div>
+          <h3 class="gradient-text">YAY! You just made my entire universe brighter!</h3>
+          <p>Thank you for your beautiful, forgiving heart. I love you to infinity and beyond!</p>
+          <div class="sweet-promise glow-card">
+            <span>🌹 Birthday Pass Granted: 1,000,000 Hugs & Wishes Fulfilled! 🎂</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer class="footer">
+      <div class="footer-heart-pulse">❤️</div>
+      <p class="footer-text">
+        Crafted with love for <strong>Khyatea</strong> &bull; <strong>Jeet ❤️ Khyatea</strong>
+      </p>
+      <p class="footer-subtext">&copy; 2026 Forever & Always &bull; Made with all my heart</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
